@@ -1,14 +1,47 @@
-.App__body {
+header {
+margin : 20px;
+text-align: center;
+}
+.App__title {
+font-family: Helvetica Neue, Helvetica, Arimo, Liberation Sans, Lucida Grande, sans-serif;
+font-size: 2em;
+}
+
+ .App__logo {
+   width: 150px;
+   height: 150px;
+ }
+
+.align--center {
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-.App__content {
-  min-height: 85vh;
-  height: 85vh;
-  flex-direction: column; 
+.bg--main {
+background: #4B79A1; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #4B79A1 , #283E51); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #4B79A1 , #283E51); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
 }
 
-.App__footer {
+.Wiki__container {
+margin: 10px;
 }
+
+.big--title {
+font-size: 3em;
+}
+
+@media screen and (max-width: 480px) {
+ .App__title {
+   font-size: 1.5em;
+ }
+
+ .App__logo {
+   width: 80px;
+   height: 80px;
+ }
+}
+

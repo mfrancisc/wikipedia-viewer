@@ -22,10 +22,14 @@ function WikipediaCtrl ($scope, WikipediaApi)
 {
   var wikiList = this;
   $scope.change = function (){
-    var results = {data : {query: {pages : ""}}};
+
   WikipediaApi.find(wikiList.searchText).then(function(results){
+    if(wikiList.searchText == "") {
+      wikiList.wikis = "";
+      return;
+    }
+
    wikiList.wikis = results.data.query.pages;
-   console.log(wikiList.wikis);
   });
   }
 
