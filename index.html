@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html >
+  <head>
+    <title>Wikipedia Viewer</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css"/> 
+  </head>
+
+  <body class="App__body" ng-app="WikiViewer">
+
+    <header>
+      <h1> Wikipedia Viewer</h1>
+    </header>
+
+    <content class="App__content" ng-controller="WikipediaCtrl as wikiList">
+
+    <div class="flex-container">
+
+      <input type="text" class="Search__input" id="search-input" ng-model="wikiList.searchText" ng-change="change()"/>
+    </div> 
+
+
+    <div class="results">
+      <ul class="wikis">
+        <li ng-repeat="wiki in wikiList.wikis">
+          <span>{{wiki.title}}</span>
+          <img src="{{wiki.thumbnail.source}}" />
+          <p>{{wiki.extract}}</p>
+        </li>
+      </ul>
+    </div>
+
+    </content>
+
+    <footer class="App__footer">
+      <div class="Footer__info">
+     Created by Munteanu Francisc 2016
+      </div>
+    </footer>
+
+  </body>
+
+</html>
+
