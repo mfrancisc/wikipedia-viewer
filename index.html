@@ -25,7 +25,7 @@
           <div class="col col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 col-ls-offset-4">
             <span class="App__title"> Wikipedia Viewer</span>
           </div>
-          </div>
+        </div>
       </header>
 
       <content class="App__content" ng-controller="WikipediaCtrl as wikiList">
@@ -35,17 +35,24 @@
             <span class="bg--main input-group-addon">
               <i  class="fa fa-search fa-fw"></i>
             </span>
-            <input type="text" class="bg--main form-control input-lg" placeholder="Search for..." id="search-input" ng-model="wikiList.searchText" ng-change="change()" />
+            <input type="text" class="bg--main form-control input-lg Wiki__search" placeholder="Search Wikipedia articles ..." id="search-input" ng-model="wikiList.searchText" ng-change="change()" />
           </div><!-- /input-group -->
         </div> 
 
-        <div class="row Wiki__container">
-<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="wiki in wikiList.wikis">
-                <h1>{{wiki.title}}</h1>
-                {{wiki.extract}}
-  <p><a class="btn btn-info btn-lg" target="_blank" href="https://en.wikipedia.org/?curid={{wiki.pageid}}" role="button">Learn more</a></p>
-</div>
-</div>
+
+        <ul class="list">  
+          <li class="list-item" ng-repeat="wiki in wikiList.wikis">  
+            <div class="list-content">    
+
+              <h2>{{wiki.title}}</h2>  
+              <p>
+              {{wiki.extract}}
+              </p>  
+
+              <a class="btn btn-info btn-lg" target="_blank" href="https://en.wikipedia.org/?curid={{wiki.pageid}}" role="button">Learn more</a>
+            </div>  
+          </li>  
+        </ul>
       </content>
 
       <footer class="App__footer align--center">
@@ -54,7 +61,7 @@
         </div>
       </footer>
 
-        </div>
+    </div>
   </body>
 
 </html>
