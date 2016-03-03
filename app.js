@@ -14,8 +14,16 @@ function WikipediaApi ($http, WikipediaApiEndPoint ) {
       });
   };
 
+  var randomArticle  = function() {
+    return $http.jsonp(WikipediaApiEndPoint.url+'?action=query&generator=random&prop=pageimages|extracts&format=json&callback=JSON_CALLBACK&explaintext&exsentences=2&exlimit=5&grnlimit=4')
+      .then(function(data) {
+        return data;
+      });
+  };
+
   return {
-    find: results
+    find: results,
+    getRandom: randomArticle 
   };
 }
 function WikipediaCtrl ($scope, WikipediaApi) 
@@ -31,6 +39,13 @@ function WikipediaCtrl ($scope, WikipediaApi)
 
    wikiList.wikis = results.data.query.pages;
   });
+  }
+
+  $scope.random = function () {
+  
+    WikipediaApi.getRandom().then(function(results){
+      wikiList.wikis = results.data.query.pages;
+    });
   }
 
 }
